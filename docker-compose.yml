@@ -1,0 +1,106 @@
+version: '3'
+
+services:
+  stackstorm:
+    image: stackstorm/stackstorm:${TAG:-latest}
+    cap_add:
+      - SYS_ADMIN
+    security_opt:
+      - seccomp:unconfined
+    container_name: stackstorm
+    env_file:
+      - conf/stackstorm.env
+      - conf/mongo.env
+      - conf/rabbitmq.env
+      - conf/postgres.env
+      - conf/redis.env
+    ports:
+      - "443:443"
+    networks:
+      - public
+      - private
+    volumes:
+      - ./packs.dev:/opt/stackstorm/packs.dev
+
+### External Services
+
+  mongo:
+    image: mongo:3.4
+    container_name: mongo
+    env_file:
+      - conf/mongo.env
+    networks:
+      - private
+    volumes:
+      - mongo-volume:/data/db
+  rabbitmq:
+    image: rabbitmq:management
+    container_name: rabbitmq
+    env_file:
+      - conf/rabbitmq.env
+    networks:
+      - private
+    volumes:
+      - rabbitmq-volume:/var/lib/rabbitmq
+  postgres:
+    image: postgres:latest
+    container_name: postgres
+    env_file:
+      - conf/postgres.env
+    networks:
+      - private
+    volumes:
+      - postgres-volume:/var/lib/postgresql/data
+  redis:
+    image: redis:latest
+    container_name: redis
+    env_file:
+      - conf/redis.env
+    networks:
+      - private
+    volumes:
+      - redis-volume:/data
+
+### Additional services for Arteria testing
+
+  runfolder:
+    build: ./docker-runfolder
+    image: local/runfolder:latest
+    container_name: runfolder_ws
+    ports:
+      - "7010:80"
+    networks:
+      - public
+
+  bcl2fastq:
+    build: ./docker-bcl2fastq
+    image: local/bcl2fastq:latest
+    container_name: bcl2fastq_ws
+    ports:
+      - "7020:80"
+    networks:
+      - public
+
+  nginx:
+    image: nginx:latest
+    container_name: nginx
+    ports:
+      - "7000:80"
+    networks:
+      - public
+    volumes:
+      - ./docker-nginx/default.conf:/etc/nginx/conf.d/default.conf:ro
+      - ./docker-nginx:/usr/share/nginx/html:ro
+
+
+volumes:
+  mongo-volume:
+  postgres-volume:
+  rabbitmq-volume:
+  redis-volume:
+
+networks:
+  public:
+    driver: bridge
+  private:
+    driver: bridge

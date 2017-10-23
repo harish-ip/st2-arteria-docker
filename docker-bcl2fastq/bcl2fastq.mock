@@ -1,0 +1,53 @@
+#!/bin/bash
+
+version_string="BCL to FASTQ file converter\nbcl2fastq v2.20.0.422\nCopyright (c) 2007-2017 Illumina, Inc.\n"
+print_version=false
+
+sleep_time=10
+output_dir=""
+positional_args=()
+
+while [[ $# -gt 0 ]]; do
+  key="$1"
+  case $key in
+    -v|--version)
+    print_version=true
+    shift # past argument
+    shift # past value
+    ;;
+    -s|--sleep_time)
+    shift # past argument
+    sleep_time=$1
+    shift # past value
+    ;;
+    --output-dir)
+    shift # past argument
+    output_dir=$1
+    shift # past value
+    ;;
+    *)    # unknown option
+    positional_args+=("$1") # save it in an array for later
+    shift # past argument
+    ;;
+  esac
+done
+
+
+set -- "${positional_args[@]}" # restore positional parameters
+
+if [[ $print_version = true ]]; then
+  printf "$version_string"
+else
+  sleep $sleep_time
+fi
+
+if [[ $# -gt 0 ]]; then
+  echo $@
+fi
+
+if [[ $output_dir != "" ]]; then
+  if [[ ! -d "$output_dir" ]]; then
+    mkdir "$output_dir"
+  fi
+  echo $@ > "$output_dir/bcl2fastq.output"
+fi
