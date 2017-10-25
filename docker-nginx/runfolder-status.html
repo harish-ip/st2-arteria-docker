@@ -28,11 +28,10 @@
 
 <script>
 
-var runfolder_service = 'http://localhost:7000/runfolder_api/1.0/runfolders';
+var runfolder_service = 'http://localhost:7000/runfolder_api/1.0/runfolders?state=*';
 var bcl2fastq_service = 'http://localhost:7000/status_api/1.0/status/';
 
 $(document).ready(function(){
-    console.info("hello")
     jQuery.support.cors = true;
 
     $.ajax(
@@ -45,7 +44,6 @@ $(document).ready(function(){
         dataType: "json",
         cache: false,
         success: function (data) {
-          console.info(data)
           $.each(data.runfolders,function(i,item){
               $("#runfolder tbody").append(
                   "<tr>"
@@ -70,7 +68,6 @@ $(document).ready(function(){
         dataType: "json",
         cache: false,
         success: function (data) {
-          console.info(data)
           $.each(data,function(i,item){
               $("#bcl2fastq tbody").append(
                   "<tr>"
