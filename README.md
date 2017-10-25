@@ -57,7 +57,7 @@ exit
 
 # Then install and configure the pack and workflow
 st2 pack install https://github.com/reisingerf/arteria-packs.git=playground
-cp packs/arteria/arteria.yaml.example configs/arteria.yaml
+cp /opt/stackstorm/packs/arteria/arteria.yaml.example /opt/stackstorm/configs/arteria.yaml
 st2ctl reload --register-configs
 st2 action enable arteria.umccr_test
 st2 rule enable arteria.umccr_workflow_test
