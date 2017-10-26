@@ -91,6 +91,9 @@ services:
     volumes:
       - ./docker-nginx/default.conf:/etc/nginx/conf.d/default.conf:ro
       - ./docker-nginx:/usr/share/nginx/html:ro
+    depends_on:
+      - "bcl2fastq"
+      - "runfolder"
 
 
 volumes:
