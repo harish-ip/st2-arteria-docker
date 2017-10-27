@@ -1,13 +1,10 @@
 sudo: required
-
 services:
-  - docker
-
+- docker
 script:
-  - ls -lah
-  - docker-compose up -d --build
-
+- ls -lah
+- docker-compose up -d --build
 notifications:
   email: false
   slack:
-    secure: 
+    secure: ZCjuMOo5zu+7kpncDq3ZT1KIPnSZg64N6sGyzTnIPEvzxdXKI+bTcpcA8e8jn20jERqZDcQS5Siw5gZ5tBgVXTV6Xtrm0RLDN8yu7VJD/PesP1L88/oJQ2a8wggA3iSfK/QghnXOUV747G/Ql6RQSqTrLhKulmPjLKIVXqkl6I8E95hX47Qr3KW1GGxVQwbh2kHIMxDIUm1vJjiL7gn43OYvsyRTvOFfp3AW+bk9gBFEId0fvSy7WSFsFrY02PNHCg2YD5n3bpXp1K+q2PcGJZUaDmHt/TDjR9ZH8Q371qUplYt8TRnSHyENz02Nxab2GYd7a3BdklQRGiRVyomE/lqKG/vSUr+ZdSHt9pQVonI8knoP5S6DimD5G/ifE5EqIK5SNqwGgd9R25ETxowhluAirvAIS3GbRa3bnafGBl5oYmnH1UU/LYqZrvNkpZ0DWo/SGW/3MhrHDDtGluclF+VmI11lgkbmzZzElXuuqMtdjj/8jVwoKNbolfJ/anLhgzPmUsvHO0AzcLqks50LDko2liPaPUvsJgQ2LgKMy76lvhkbMcrGgJH0iHD8C58jui6l5EwvHKISKMQzsoVly7W6C1D1AZPoyrXKYURDr9n3AXsL//xfNycjAt7JJskKMFGlTBFXfRWXUHf4nFIipJZaLMqCYnXfGyZzEWbYC5c=
