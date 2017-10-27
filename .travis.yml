@@ -1,0 +1,13 @@
+sudo: required
+
+services:
+  - docker
+
+script:
+  - ls -lah
+  - docker-compose up -d --build
+
+notifications:
+  email: false
+  slack:
+    secure: 
