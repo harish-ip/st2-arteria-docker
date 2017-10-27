@@ -2,11 +2,7 @@ version: '3'
 
 services:
   stackstorm:
-    image: stackstorm/stackstorm:${TAG:-latest}
-    cap_add:
-      - SYS_ADMIN
-    security_opt:
-      - seccomp:unconfined
+    image: stackstorm/stackstorm:${ST2_VERSION_TAG:-latest}
     container_name: stackstorm
     env_file:
       - conf/stackstorm.env
@@ -21,6 +17,11 @@ services:
       - private
     volumes:
       - ./packs.dev:/opt/stackstorm/packs.dev
+      - stackstorm-log-volume:/var/log
+      - ./runtime/entrypoint.d:/st2-docker/entrypoint.d
+      - ./runtime/st2.d:/st2-docker/st2.d
+      - ./conf/stackstorm.env:/st2-docker/env
+
 
 ### External Services
 
@@ -101,6 +102,7 @@ volumes:
   postgres-volume:
   rabbitmq-volume:
   redis-volume:
+  stackstorm-log-volume:
 
 networks:
   public:
