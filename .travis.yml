@@ -7,7 +7,7 @@ before_script:
 script:
 - ls -lah
 - docker-compose exec stackstorm st2 pack install https://github.com/reisingerf/arteria-packs.git=st2_2_4_1
-- docker-compose exec stackstorm st2-run-pack-tests /opt/stackstorm/packs/arteria
+- docker-compose exec stackstorm st2-run-pack-tests -p /opt/stackstorm/packs/arteria
 after_script:
 - docker-compose down -v
 notifications:
