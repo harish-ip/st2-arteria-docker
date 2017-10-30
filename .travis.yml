@@ -1,9 +1,15 @@
 sudo: required
 services:
 - docker
+before_script:
+- docker-compose up -d --build --force-recreate
+- docker-compose exec stackstorm st2ctl reload --register-all
 script:
 - ls -lah
-- docker-compose up -d --build
+- docker-compose exec stackstorm st2 pack install https://github.com/reisingerf/arteria-packs.git=st2_2_4_1
+- docker-compose exec stackstorm st2-run-pack-tests /opt/stackstorm/packs/arteria
+after_script:
+- docker-compose down -v
 notifications:
   email: false
   slack:
