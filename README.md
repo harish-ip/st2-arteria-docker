@@ -1,5 +1,7 @@
 # docker-compose setup for UMCCR's StackStorm / Arteria framework
 
+[![Build Status](https://travis-ci.org/umccr/st2-arteria-docker.svg?branch=master)](https://travis-ci.org/umccr/st2-arteria-docker)
+
 This will set up a docker container network that can be used for local development and testing. Containers are pre-configured and hardcoded to a small set of narrow use-cases. Additional configuration is needed (see below) in order to run the simple UMCCR workflow (copy runfolder and start bcl2fastq conversion).
 
 
