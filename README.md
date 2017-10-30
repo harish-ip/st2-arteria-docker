@@ -22,6 +22,11 @@ Or via opening a shell in the container:
 The StackStorm web interface should be available on `https://localhost` on the docker host machine.
 There should also be a web page showing the available runfolders and bcl2fastq job states at `http://localhost:7000/runfolder-status.html`.
 
+## testing
+```
+st2-run-pack-tests -p /path/to/pack
+```
+
 ## Getting started with setup for UMCCR test workflow
 
 On docker host:
