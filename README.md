@@ -26,7 +26,7 @@ There should also be a web page showing the available runfolders and bcl2fastq j
 
 ## testing
 ```
-st2-run-pack-tests -p /path/to/pack
+st2-run-pack-tests -p /opt/stackstorm/packs/arteria
 ```
 
 ## Getting started with setup for UMCCR test workflow
