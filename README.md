@@ -76,6 +76,19 @@ st2 execution list
 st2 execution get <task ID>
 ```
 
+## Deployment (WIP)
+
+Unfortunately Amazon [does not support version 3 docker compose syntax](https://twitter.com/braincode/status/928109053074706432),
+so we cannot use Amazon ECS out of the box:
+
+    $ ecs-cli configure --region ap-southeast-2 --access-key <ACCESS_KEY> --secret-key <SECRET_KEY> --cluster arteria
+	INFO[0000] Saved ECS CLI configuration for cluster (arteria)
+
+    $ ecs-cli compose up
+
+Instead we'll try with kubernetes hosted on EC2 for starters (back to kops and self-managed clustering).
+
+
 ## ToDo:
 
 - move from playground arteria pack to stable / production pack

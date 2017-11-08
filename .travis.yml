@@ -1,16 +1,16 @@
 language: python
 sudo: required
 services:
-- docker
+    - docker
 before_script:
-- docker-compose up -d --build --force-recreate
-- docker-compose exec stackstorm st2ctl reload --register-all
+    - docker-compose up -d --build --force-recreate
+    - docker-compose exec stackstorm st2ctl reload --register-all
 script:
-- ls -lah
-- docker-compose exec stackstorm st2 pack install https://github.com/umccr/arteria-packs.git
-- docker-compose exec stackstorm st2-run-pack-tests -p /opt/stackstorm/packs/arteria
+    - ls -lah
+    - docker-compose exec stackstorm st2 pack install https://github.com/umccr/arteria-packs.git
+    - docker-compose exec stackstorm st2-run-pack-tests -p /opt/stackstorm/packs/arteria
 after_script:
-- docker-compose down -v
+    - docker-compose down -v
 notifications:
   email: false
   slack:
