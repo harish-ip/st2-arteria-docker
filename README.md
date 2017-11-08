@@ -63,7 +63,7 @@ exit
 # may beed to ssh into runfolder_ws and bcl2fastq_ws manually first to add servers to known_hosts
 
 # Then install and configure the pack and workflow
-st2 pack install https://github.com/reisingerf/arteria-packs.git=playground
+st2 pack install https://github.com/umccr/arteria-packs.git
 cp /opt/stackstorm/packs/arteria/arteria.yaml.example /opt/stackstorm/configs/arteria.yaml
 st2ctl reload --register-configs
 st2 action enable arteria.umccr_test
