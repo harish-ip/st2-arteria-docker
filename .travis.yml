@@ -6,7 +6,7 @@ before_script:
 - docker-compose exec stackstorm st2ctl reload --register-all
 script:
 - ls -lah
-- docker-compose exec stackstorm st2 pack install https://github.com/reisingerf/arteria-packs.git=st2_2_4_1
+- docker-compose exec stackstorm st2 pack install https://github.com/umccr/arteria-packs.git
 - docker-compose exec stackstorm st2-run-pack-tests -p /opt/stackstorm/packs/arteria
 after_script:
 - docker-compose down -v
