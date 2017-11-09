@@ -32,7 +32,7 @@ deploy:
   access_key_id: AKIAJMC57KOG7GXCHRQQ
   secret_access_key: *1
   bucket: arteria
-  key: latest/arteria_umccr.zip
+  key: latest/master.zip
   bundle_type: zip
   application: st2-arteria-docker
   deployment_group: arteria
