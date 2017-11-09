@@ -34,7 +34,7 @@ deploy:
   bucket: arteria
   key: latest/master.zip
   bundle_type: zip
-  application: st2-arteria-docker
+  application: arteria
   deployment_group: arteria
   on: *2
 before_deploy:
