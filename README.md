@@ -86,7 +86,7 @@ so we cannot use Amazon ECS out of the box:
 
     $ ecs-cli compose up
 
-Instead we'll try with kubernetes hosted on EC2 for starters (back to kops and self-managed clustering).
+Instead we'll first go for an EC2 instance through codedeploy.
 
 
 ## ToDo:
