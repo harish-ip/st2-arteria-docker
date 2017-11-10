@@ -86,7 +86,8 @@ so we cannot use Amazon ECS out of the box:
 
     $ ecs-cli compose up
 
-Instead we'll first go for an EC2 instance through [AWS CodeDeploy](http://docs.aws.amazon.com/codedeploy/latest/userguide/welcome.html).
+Instead we'll first go for an EC2 instance through [AWS CodeDeploy](http://docs.aws.amazon.com/codedeploy/latest/userguide/welcome.html). If you
+are setting up CodeDeploy+TravisCI for your organization, I strongly suggest to follow this handy [non-official 13-step tutorial](https://medium.com/@itsdavidthai/comprehensive-aws-ec2-deployment-with-travisci-guide-7cafa9c754fc).
 
 
 ## ToDo:
