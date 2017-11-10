@@ -86,7 +86,7 @@ so we cannot use Amazon ECS out of the box:
 
     $ ecs-cli compose up
 
-Instead we'll first go for an EC2 instance through codedeploy.
+Instead we'll first go for an EC2 instance through [AWS CodeDeploy](http://docs.aws.amazon.com/codedeploy/latest/userguide/welcome.html).
 
 
 ## ToDo:
