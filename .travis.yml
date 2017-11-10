@@ -9,8 +9,6 @@ script:
 - ls -lah
 - docker-compose exec stackstorm st2 pack install https://github.com/umccr/arteria-packs.git
 - docker-compose exec stackstorm st2-run-pack-tests -p /opt/stackstorm/packs/arteria
-after_script:
-- docker-compose down -v
 notifications:
   email: false
   slack:
