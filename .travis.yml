@@ -39,6 +39,5 @@ before_deploy:
 - wget https://github.com/umccr/st2-arteria-docker/archive/master.zip
 - mkdir -p dpl_cd_upload
 - ls -alh .
-- zip master.zip st2-arteria-docker-master/appsec.yml
+- zip master.zip appspec.yml
 - mv master.zip dpl_cd_upload/master.zip
-#- cp appsec.yml dpl_cd_upload/appsec.yml
