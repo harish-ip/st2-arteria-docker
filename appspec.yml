@@ -2,7 +2,7 @@
 #
 #   http://docs.aws.amazon.com/codedeploy/latest/userguide/application-revisions-appspec-file.html
 #   http://docs.aws.amazon.com/codedeploy/latest/userguide/app-spec-ref.html
-version: 0.1
+version: 0.2
 files:
   - source: .
-    destination: /opt/stackstorm/arteria
+    destination: /srv/arteria
