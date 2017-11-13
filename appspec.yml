@@ -2,7 +2,15 @@
 #
 #   http://docs.aws.amazon.com/codedeploy/latest/userguide/application-revisions-appspec-file.html
 #   http://docs.aws.amazon.com/codedeploy/latest/userguide/app-spec-ref.html
-version: 0.2
+version: 0.0
 files:
-  - source: .
+  - source: st2-arteria-docker-master
     destination: /srv/arteria
+hooks:
+  BeforeInstall:
+    - location: scripts/prepare.sh
+      timeout: 3600
+  ApplicationStart:
+    - location: scripts/start.sh
+      timeout: 3600
+      runas: ubuntu
