@@ -9,10 +9,10 @@ files:
     destination: /srv/arteria
 hooks:
   BeforeInstall:
-    - location: scripts/prepare.sh
+    - location: st2-arteria-docker-master/scripts/prepare.sh
       timeout: 3600
       runas: root
   ApplicationStart:
-    - location: scripts/start.sh
+    - location: st2-arteria-docker-master/scripts/start.sh
       timeout: 3600
       runas: ubuntu
