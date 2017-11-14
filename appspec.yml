@@ -15,4 +15,4 @@ hooks:
   ApplicationStart:
     - location: st2-arteria-docker-master/scripts/start.sh
       timeout: 3600
-      runas: ubuntu
+      runas: root
