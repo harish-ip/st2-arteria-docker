@@ -6,4 +6,4 @@ curl -L https://github.com/docker/compose/releases/download/1.17.1/docker-compos
 chmod +x /usr/local/bin/docker-compose
 gpasswd -a ubuntu docker
 newgrp docker
-#chown -R ubuntu:ubuntu /srv/arteria
+chown -R ubuntu:ubuntu /srv/arteria
