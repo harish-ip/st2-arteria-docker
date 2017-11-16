@@ -21,6 +21,7 @@ services:
       - ./runtime/entrypoint.d:/st2-docker/entrypoint.d
       - ./runtime/st2.d:/st2-docker/st2.d
       - ./conf/stackstorm.env:/st2-docker/env
+    dns_search: .
 
 
 ### External Services
@@ -34,6 +35,7 @@ services:
       - private
     volumes:
       - mongo-volume:/data/db
+    dns_search: .
   rabbitmq:
     image: rabbitmq:management
     container_name: rabbitmq
@@ -43,6 +45,7 @@ services:
       - private
     volumes:
       - rabbitmq-volume:/var/lib/rabbitmq
+    dns_search: .
   postgres:
     image: postgres:latest
     container_name: postgres
@@ -52,6 +55,7 @@ services:
       - private
     volumes:
       - postgres-volume:/var/lib/postgresql/data
+    dns_search: .
   redis:
     image: redis:latest
     container_name: redis
@@ -61,6 +65,7 @@ services:
       - private
     volumes:
       - redis-volume:/data
+    dns_search: .
 
 ### Additional services for Arteria testing
 
